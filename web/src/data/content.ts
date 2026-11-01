@@ -26,6 +26,8 @@ export const SOCIETY = {
   acronym: "SMMPySP",
   founded: "17 de enero de 2007",
   email: "smmpysp@commurcia.es",
+  /** Dirección oficial de esta web (despliegue en Vercel) */
+  web: "https://web-smmpsp.vercel.app/",
   blog: "https://murciamedicinapreventivasaludpublica.blogspot.com",
   /** Perfil en X (antes Twitter): @SMPSPRM */
   twitter: "https://x.com/smpsprm",

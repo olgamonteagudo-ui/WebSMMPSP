@@ -1,4 +1,4 @@
-import { Mail, MapPin, Rss } from "lucide-react";
+import { Globe, Mail, MapPin, Rss } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Logo } from "@/components/Logo";
@@ -35,6 +35,22 @@ export function Contact() {
                   <dd className="mt-0.5">
                     <a href={`mailto:${SOCIETY.email}`} className="text-stone-600 hover:text-brand-800 hover:underline">
                       {SOCIETY.email}
+                    </a>
+                  </dd>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-800 ring-1 ring-brand-100">
+                  <Globe className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <dt className="text-sm font-semibold text-stone-900">Página web</dt>
+                  <dd className="mt-0.5">
+                    <a
+                      href={SOCIETY.web}
+                      className="break-all text-stone-600 transition hover:text-brand-800 hover:underline"
+                    >
+                      web-smmpsp.vercel.app
                     </a>
                   </dd>
                 </div>

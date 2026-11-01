@@ -1,4 +1,4 @@
-import { Mail, Rss } from "lucide-react";
+import { Globe, Mail, Rss } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/Logo";
 import { FacebookIcon, LinkedinIcon, XIcon, YoutubeIcon } from "@/components/ui/SocialIcons";
@@ -74,6 +74,15 @@ export function Footer() {
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">Contacto</h3>
             <ul className="mt-5 space-y-3 text-sm">
+              <li>
+                <a
+                  href={SOCIETY.web}
+                  className="inline-flex items-center gap-2 text-brand-100/80 transition hover:text-white"
+                >
+                  <Globe className="h-4 w-4" />
+                  web-smmpsp.vercel.app
+                </a>
+              </li>
               <li>
                 <a
                   href={`mailto:${SOCIETY.email}`}
