@@ -3,9 +3,12 @@ import { Container } from "@/components/ui/Container";
 import { STATS } from "@/data/content";
 
 function useCountUp(target: number, start: boolean, duration = 1400) {
-  const [value, setValue] = useState(0);
+  // El valor final aparece ya en el HTML inicial (pre-renderizado); la animación
+  // vuelve a cero y sube cuando la sección entra en pantalla.
+  const [value, setValue] = useState(target);
   useEffect(() => {
     if (!start) return;
+    setValue(0);
     let raf = 0;
     const t0 = performance.now();
     const tick = (now: number) => {
