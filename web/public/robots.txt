@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sin límites: la web es pequeña y de acceso público
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://web-smmpsp.vercel.app/sitemap.xml
