@@ -5,7 +5,6 @@ import {
   Clock,
   FileText,
   Handshake,
-  Mail,
   Mic,
   MonitorPlay,
   PlayCircle,
@@ -16,12 +15,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Logo } from "@/components/Logo";
 import { FEATURED_WEBINAR, PAST_WEBINARS, SEMPSPGS, SOCIETY } from "@/data/content";
 import { logoSempspgs } from "@/assets/logos";
+import { noHacerPdf } from "@/assets/no-hacer-pdf";
 
 const W = FEATURED_WEBINAR;
 
-export function FeaturedWebinar() {
-  const mailSubject = encodeURIComponent(`Grabación y material del webinario «No Hacer» (SEMPSPGS · SMMPySP)`);
+/** Nombre con el que se descarga el documento en el equipo del usuario. */
+const NO_HACER_FILE_NAME = "Recomendaciones-No-Hacer-SEMPSPGS.pdf";
 
+export function FeaturedWebinar() {
   return (
     <section id="webinario" className="scroll-mt-20 relative overflow-hidden py-20 sm:py-28">
       {/* Fondo decorativo */}
@@ -165,21 +166,15 @@ export function FeaturedWebinar() {
                   Ficha en la web de la SEMPSPGS
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
+                {/* Descarga directa: el PDF va incrustado en la propia página */}
                 <a
-                  href={`mailto:${SOCIETY.email}?subject=${mailSubject}`}
+                  href={noHacerPdf}
+                  download={NO_HACER_FILE_NAME}
+                  type="application/pdf"
                   className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-800 transition hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800"
                 >
-                  <Mail className="h-4 w-4" />
-                  Solicitar grabación y material
-                </a>
-                <a
-                  href={W.links.committee}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
-                >
                   <FileText className="h-4 w-4" />
-                  Documento del Comité «No Hacer» (PDF)
+                  Descargar documento «No Hacer» (PDF · 26 KB)
                 </a>
               </div>
             </div>

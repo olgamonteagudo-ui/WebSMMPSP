@@ -1,6 +1,7 @@
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Logo } from "@/components/Logo";
 import { ACTIVITY_TYPES, AGENDA } from "@/data/content";
 
 export function Activities() {
@@ -42,22 +43,29 @@ export function Activities() {
             </span>
             <h3 className="mt-4 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">Próximas convocatorias</h3>
             <p className="mt-4 leading-relaxed text-stone-600">
-              Las inscripciones se gestionan a través del blog de la Sociedad y del Colegio de Médicos. Los webinarios
-              son abiertos y gratuitos, previa inscripción.
+              En este espacio publicamos las próximas convocatorias de cursos, jornadas, asambleas y webinarios de la
+              Sociedad, con toda la información necesaria para inscribirse.
             </p>
           </div>
 
           {AGENDA.length === 0 ? (
-            /* Estado sin convocatorias confirmadas */
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-stone-300 bg-white px-6 py-14 text-center">
+            /* Estado vacío: sin convocatorias publicadas */
+            <div className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-dashed border-stone-300 bg-white/70 px-8 py-14 text-center">
+              <Logo
+                variant="symbol"
+                className="pointer-events-none absolute -bottom-8 -right-6 h-44 w-auto opacity-[0.05]"
+              />
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-800 ring-1 ring-brand-100">
-                <CalendarDays className="h-6 w-6" aria-hidden="true" />
+                <CalendarDays className="h-7 w-7" aria-hidden="true" />
               </span>
-              <h4 className="mt-5 text-lg font-bold text-stone-900">Convocatorias en preparación</h4>
-              <p className="mt-2 max-w-sm leading-relaxed text-stone-600">
-                En este momento no hay fechas confirmadas. La sección{" "}
-                <strong className="font-semibold text-stone-800">Próximas convocatorias</strong> se actualizará en
-                cuanto se publiquen.
+              <h4 className="mt-6 text-xl font-bold text-stone-900">Sin convocatorias abiertas</h4>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-stone-600">
+                En este momento no hay cursos, jornadas, asambleas ni webinarios convocados. En cuanto se publiquen,
+                aparecerán aquí con sus fechas, ponentes y forma de inscripción.
+              </p>
+              <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-stone-100 px-4 py-2 text-xs font-semibold text-stone-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-600" aria-hidden="true" />
+                Socios y socias reciben el aviso por correo
               </p>
             </div>
           ) : (

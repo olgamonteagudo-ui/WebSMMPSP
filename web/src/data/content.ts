@@ -253,9 +253,18 @@ export interface AgendaItem {
 
 /**
  * Agenda de próximas convocatorias.
- * Se deja vacía mientras no haya fechas confirmadas; al añadir entradas
- * (día, mes, título, tipo, lugar y hora) se muestran automáticamente en la
- * sección «Agenda» de la web.
+ * Mientras no haya nada programado, la sección «Actividades» muestra un mensaje de
+ * «Sin convocatorias abiertas». Para publicar una nueva convocatoria basta con añadir
+ * aquí un objeto con la siguiente estructura:
+ *
+ * {
+ *   day: "20",
+ *   month: "MAY",
+ *   title: "Título de la convocatoria",
+ *   type: "Webinario",
+ *   place: "Online (Microsoft Teams)",
+ *   time: "17:00 – 18:00 h",
+ * }
  */
 export const AGENDA: AgendaItem[] = [];
 
@@ -298,7 +307,12 @@ export const FEATURED_WEBINAR = {
   },
   links: {
     info: "https://sempspgs.es/webinario-online-actualizaciones-de-las-recomendaciones-no-hacer-de-la-sempsgps-y-smmpysp/",
-    committee: "https://sempspgs.es/wp-content/uploads/2025/08/CE-No-Hacer-SEMPSPGS-1.pdf",
+    /* URL original del documento «No Hacer» de la SEMPSPGS.
+       La descarga automática del botón se realiza con la copia incrustada en la web
+       (src/assets/no-hacer-pdf.ts), idéntica a este archivo, para que funcione sin
+       depender de peticiones externas. */
+    committee:
+      "https://sempspgs.es/wp-content/uploads/2026/02/Recomendaciones-NO-HACER-de-la-Sociedad-Espanola-de-Medicina-Preventiva.pdf",
     partner: SEMPSPGS.href,
   },
 };
@@ -392,9 +406,14 @@ export const BOARD_ROLES: BoardRole[] = [
     description: "Administración económica, cuotas y presupuestos anuales.",
   },
   {
+    role: "Vocalía de Investigación",
+    name: "Dra. Eva Morales Bartolomé",
+    description: "Fomento de los proyectos de investigación, las colaboraciones con la universidad y los centros sanitarios, y la difusión de los resultados científicos de la Sociedad.",
+  },
+  {
     role: "Vocalía de Formación",
     name: "Dra. Rocío García Pina",
-    description: "Programa de cursos, webinarios y actividades científicas.",
+    description: "Programa de cursos, webinarios y jornadas científicas de la Sociedad, y acompañamiento a los residentes de la especialidad.",
   },
   {
     role: "Vocalía de Residentes",
