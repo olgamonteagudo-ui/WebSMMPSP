@@ -55,6 +55,23 @@ try {
 
   writeFileSync(indexPath, updated, "utf8");
   console.log(`Contenido pre-renderizado: ${(markup.length / 1024).toFixed(1)} KB insertados en index.html`);
+
+  // Actualiza la fecha de última modificación del sitemap
+  const sitemapPath = path.join(root, "public", "sitemap.xml");
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const sitemap = readFileSync(sitemapPath, "utf8");
+    const withDate = sitemap.replace(
+      /<lastmod>[^<]*<\/lastmod>/,
+      `<lastmod>${today}</lastmod>`,
+    );
+    if (withDate !== sitemap) {
+      writeFileSync(sitemapPath, withDate, "utf8");
+      console.log(`sitemap.xml actualizado · lastmod ${today}`);
+    }
+  } catch (err) {
+    console.warn(`Aviso: no se pudo actualizar sitemap.xml (${err.message})`);
+  }
 } finally {
   await vite.close();
 }
